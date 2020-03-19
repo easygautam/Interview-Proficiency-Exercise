@@ -10,16 +10,16 @@ class CountryRepository {
     fun getCountryFromRemote(): Single<Country> {
         return with(IpeApplication.instance) {
             api.getCountry()
-                .doOnSuccess {
+                .doOnSuccess { country ->
                     database.countryDao().apply {
                         // Check if country is already not available then insert
-                        if (!isAvailable(it.title))
-                            insert(it)
+                        if (!isAvailable(country.title))
+                            insert(country)
                     }
                     database.informationDao().apply {
                         // Save or Update all information of country
-                        save(it.rows.map {
-                            it.countryId = it.id
+                        save(country.rows.map {
+                            it.countryId = country.id
                             it
                         })
                     }
