@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fragment"
+            type="com.easygautam.ipe.view.country.CountryDetailFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.easygautam.ipe.view.country.CountryActivityViewModel" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:background="@color/colorWhite">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            app:imageUrl="@{viewModel.selectedInformation.imageHref}" />
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp"
+            android:text='@{@string/title + " "+ viewModel.selectedInformation.title}'
+            tools:text="Lorem Is"/>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_8sdp"
+            tools:text="Lorem Is"
+            android:textSize="@dimen/_13ssp"
+            android:text='@{@string/description + " "+ viewModel.selectedInformation.description}' />
+
+    </LinearLayout>
+
+</layout>

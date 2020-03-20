@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Country(
 
-    @PrimaryKey()
+    @PrimaryKey
     var id: Long = Const.DEFAULT_COUNTRY_ID,
 
     @field:SerializedName("title")

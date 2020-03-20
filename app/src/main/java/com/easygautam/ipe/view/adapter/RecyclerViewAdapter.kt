@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.easygautam.ipe.BR
 import java.util.*
 
+/**
+ * Adapter for [RecyclerView]
+ */
 open class RecyclerViewAdapter<T>(private val rowLayout: Int) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

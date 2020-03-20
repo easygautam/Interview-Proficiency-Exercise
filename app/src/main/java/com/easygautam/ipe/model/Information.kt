@@ -1,5 +1,6 @@
 package com.easygautam.ipe.model
 
+import androidx.databinding.BaseObservable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -13,13 +14,13 @@ data class Information(
     var countryId: Long,
 
     @field:SerializedName("imageHref")
-    val imageHref: String? = null,
+    var imageHref: String? = null,
 
     @field:SerializedName("description")
-    val description: String? = null,
+    var description: String? = null,
 
     @field:SerializedName("title")
-    val title: String? = null
+    var title: String? = null
 
 
-)
+): BaseObservable()

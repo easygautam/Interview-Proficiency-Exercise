@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="com.easygautam.ipe.view.country.InformationFragment" />
+            type="com.easygautam.ipe.view.country.CountryFragment" />
 
         <variable
             name="viewModel"

@@ -1,9 +1,9 @@
 package com.easygautam.ipe.data.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.easygautam.ipe.model.Country
-import io.reactivex.Single
 
 /**
  * [CountryDao] interface has all declaration about how to deal with country data in country table
@@ -21,6 +21,6 @@ interface CountryDao : BaseDao<Country> {
     fun getCountry(id: Long): Country
 
     @Query("select * from Country where id=:id")
-    fun getCountryRx(id: Long): Single<Country>
+    fun getCountryLive(id: Long): LiveData<Country?>
 
 }

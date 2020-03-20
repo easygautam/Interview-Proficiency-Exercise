@@ -1,5 +1,6 @@
 package com.easygautam.ipe.data.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.easygautam.ipe.model.Information
@@ -36,6 +37,6 @@ abstract class InformationDao : BaseDao<Information> {
     @Query("select * from Information where countryId=:countryId")
     abstract fun getAllInformationByCountryId(
         countryId: Long
-    ): List<Information>
+    ): LiveData<List<Information>>
 
 }

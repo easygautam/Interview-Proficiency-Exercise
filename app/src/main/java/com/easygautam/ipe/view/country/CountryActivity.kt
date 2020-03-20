@@ -10,6 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.easygautam.ipe.R
 import com.easygautam.ipe.databinding.ActivityCountryBinding
 
+/**
+ * This activity handle all stuff related country, Show list, Detail, Edit.
+ */
 class CountryActivity : AppCompatActivity() {
 
     private val TAG by lazy { this.javaClass.simpleName }
@@ -27,16 +30,21 @@ class CountryActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * Initial task on this activity
+     */
     private fun initialize() {
 
-        addFragment(R.id.container, InformationFragment(), false)
+        addFragment(R.id.container, CountryFragment(), false)
 
         viewModel.country.observe(this, Observer {
-            supportActionBar?.title = it.title
-            Log.d(TAG, "Country loaded. $it")
+            it?.let {
+                supportActionBar?.title = it.title
+                Log.d(TAG, "Country loaded. $it")
+            }
         })
 
-        viewModel.getCountry(this)
+        viewModel.loadCountry()
     }
 
 
@@ -55,24 +63,5 @@ class CountryActivity : AppCompatActivity() {
             add(container, fragment, tag)
         }.commit()
     }
-
-    /**
-     * Replace fragment with animation control
-     */
-    fun replaceFragment(
-        container: Int,
-        fragment: Fragment,
-        addToBackStack: Boolean
-    ) {
-        supportFragmentManager.beginTransaction().apply {
-                val tag = fragment.javaClass.simpleName
-                if (addToBackStack)
-                    addToBackStack(tag)
-                replace(container, fragment, tag)
-            }
-            .commit()
-    }
-
-    fun getFragment(container: Int) = supportFragmentManager.findFragmentById(container)
 
 }

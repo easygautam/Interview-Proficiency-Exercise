@@ -60,4 +60,4 @@ class RetrofitNetwork(private val context: Context) {
 
 }
 
-class NoInternetConnectionException : Exception()
+class NoInternetConnectionException : Exception("Internet Error, Check your internet connectivity.")

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fragment"
+            type="com.easygautam.ipe.view.country.CountryEditFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.easygautam.ipe.view.country.CountryActivityViewModel" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_12sdp"
+        android:focusable="true"
+        android:background="@color/colorWhite">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:text="@={viewModel.selectedInformation.title}" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="start|top"
+            android:hint="@string/description"
+            android:minLines="3"
+            android:text="@={viewModel.selectedInformation.description}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:onClick="@{(v)->fragment.save()}"
+            android:text="@string/save" />
+    </LinearLayout>
+
+</layout>

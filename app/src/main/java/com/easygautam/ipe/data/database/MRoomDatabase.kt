@@ -9,6 +9,9 @@ import com.easygautam.ipe.model.Country
 import com.easygautam.ipe.model.Information
 
 
+/**
+ * Extended class to configure and create [RoomDatabase] instance, and hold all Entities and Dao classes
+ */
 @Database(
     entities = [
         Country::class,
